@@ -1,0 +1,223 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;500;600;700&display=swap');
+
+body {
+    font-family: 'Noto Serif', serif;
+    background-color: #ffffff; /* Pure white background */
+    margin: 0; /* Remove default body margin */
+    padding: 0; /* Remove default body padding */
+}
+
+.sizing_logo{
+    width: 135px;
+    height: 82px;
+    flex-shrink: 0;
+    font-size: 50px;
+}
+
+.deals_padding{
+    padding-bottom: 100px;
+}
+
+/* Container for the main image in the "Flower & Plants Lover" section */
+.image-container-relative {
+    position: relative;
+}
+
+/* Styles for the trusted seller badge */
+.trusted-badge {
+    position: absolute;
+    /* Position at the top right, adjusted to match the new image */
+    top: -90px; /* Adjust this value to move it further up or down */
+    right: -70px; /* Adjusted to move it to the right */
+    transform: translateX(0); /* Removed transform as it's no longer centered */
+    width: 200px; /* Updated width for the badge */
+    height: 200px; /* Updated height for the badge */
+    z-index: 10; /* Ensure it stays on top */
+    animation: spin 4s linear infinite; /* Apply spinning animation */
+}
+
+/* Ensure the badge image fills its container */
+.trusted-badge img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* or 'cover' depending on desired fill behavior */
+}
+
+/* Keyframes for the spinning animation */
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Mobile-specific styles (for screens smaller than 767px, covering iPhone 14) */
+@media (max-width: 767px) {
+    /* Navbar: Center logo and cart items */
+    .navbar-inner-container {
+        /* Align items to the start (left) and space between them */
+        justify-content: space-between !important;
+        /* Ensure the logo is aligned to the start */
+        align-items: flex-start !important;
+    }
+
+    /* Banner Section - Text Content */
+    section.container.mx-auto.mt-7 > div.md\:w-1\/2:first-child {
+        text-align: center !important; /* Center text on mobile */
+    }
+
+    /* Newsletter Subscription Banner Section */
+    .newsletter-input-group {
+        /* Ensure no gap between elements for collision effect */
+        gap: 0 !important;
+    }
+
+    .newsletter-input-group input[type="email"] {
+        width: 50% !important; /* Input field takes 50% width on mobile */
+        flex-grow: 0 !important; /* Prevent it from growing beyond 50% */
+        padding: 0.75rem 1rem !important; /* Adjust padding for mobile */
+        font-size: 0.9rem !important; /* Adjust font size for mobile */
+        /* Remove rounded corners on the right side to make it collide visually */
+        border-top-right-radius: 0 !important;
+        border-bottom-right-radius: 0 !important;
+    }
+
+    .newsletter-input-group button {
+        width: 50% !important; /* Button takes 50% width on mobile */
+        flex-shrink: 0 !important; /* Prevent it from shrinking */
+        padding: 0.75rem 1.25rem !important; /* Adjust padding for mobile */
+        font-size: 0.9rem !important; /* Adjust font size for mobile */
+        /* Remove rounded corners on the left side to make it collide visually */
+        border-top-left-radius: 0 !important;
+        border-bottom-left-radius: 0 !important;
+    }
+
+    /* Existing mobile styles for other sections */
+    /* Ensure the main section is a column and reverses order for mobile */
+    section.container.max-w-7xl.flex.flex-col.md\:flex-row.items-stretch.justify-between {
+        flex-direction: column-reverse !important; /* Image above text on mobile */
+    }
+
+    /* Flower & Plants Lover Section - Text Column */
+    section.container.max-w-7xl > div.md\:w-1\/2:nth-of-type(2) {
+        text-align: center !important; /* Center text on mobile */
+        padding-left: 1rem; /* Adjust padding as needed for smaller screens */
+        padding-right: 1rem; /* Adjust padding as needed for smaller screens */
+    }
+
+    /* Adjust the overall section's padding for mobile if needed */
+    section.container.max-w-7xl {
+        padding-left: 1rem; /* Example: reduce horizontal padding on very small screens */
+        padding-right: 1rem;
+    }
+
+    /* Adjust heading size for mobile for better fit, if needed */
+    section.container.max-w-7xl h2 {
+        font-size: 2.25rem; /* Example: text-4xl equivalent, adjust as needed */
+        line-height: 1.2;
+    }
+
+    /* Ensure image container and image itself behave responsive */
+    section.container.max-w-7xl > div.md\:w-1\/2:nth-of-type(1) {
+        width: 100%; /* Ensure image column takes full width on mobile */
+        margin-bottom: 1.5rem; /* Add space between image and text on mobile */
+    }
+
+    /* Hide the trusted badge on mobile */
+    .trusted-badge {
+        display: none !important;
+    }
+
+    /* Remove any spinning effect on the badge for mobile */
+    .trusted-badge.your-spinning-class { /* Replace 'your-spinning-class' with the actual class if it exists */
+        animation: none !important;
+        transform: none !important;
+    }
+
+    /* Ensure list items and bullet points align left on mobile */
+    section.container.max-w-7xl ul {
+        list-style-position: inside; /* Ensures bullets are inside the content flow */
+        padding-left: 0; /* Remove default ul padding */
+    }
+
+    section.container.max-w-7xl li {
+        text-align: left; /* Ensure text within list items is left-aligned */
+        justify-content: center !important; /* Center the list item content */
+    }
+
+    /* Add 143px gap between "Flower & Plants Lover" and "Latest Deals" sections on mobile */
+    section.container.max-w-7xl.mt-\[65px\].md\:mt-\[120px\].p-4.bg-white.rounded-lg.shadow-md.max-w-7xl.text-center {
+        margin-top: 143px !important;
+    }
+
+    /* Latest Deals Section - Mobile Specifics */
+    .latest-deals-grid {
+        flex-direction: column !important; /* Stack items vertically */
+        gap: 1.5rem !important; /* Adjust gap between cards if needed, Tailwind's default gap-4 is 16px */
+    }
+
+    .latest-deals-grid > div {
+        width: 100% !important; /* Make each card take full width */
+        height: auto !important; /* Allow height to adjust based on content */
+    }
+
+    /* Ensure all three cards have consistent height on mobile if needed, or let content dictate */
+    .latest-deals-grid .relative.overflow-hidden.rounded-lg.shadow-md {
+        height: 200px; /* Example fixed height for mobile cards, adjust as per image */
+    }
+
+    /* Add 52px gap between Latest Deals heading/paragraph and the first image */
+    .latest-deals-heading-group {
+        margin-bottom: 52px !important;
+    }
+
+    /* Footer Section Mobile Responsiveness */
+    .footer-content-wrapper {
+        align-items: flex-start !important; /* Align all content to the start (left) */
+        padding-left: 1rem; /* Add some left padding for mobile */
+        padding-right: 1rem; /* Add some right padding for mobile */
+        height: auto !important; /* Allow height to adjust based on content */
+        flex-direction: column !important; /* Stack items vertically */
+    }
+
+    .footer-logo-description {
+        text-align: left !important; /* Left-align text in logo/description block */
+        align-items: flex-start !important; /* Left-align items in logo/description block */
+        width: 100% !important; /* Ensure it takes full width */
+        margin-bottom: 2rem; /* Add space below logo/description */
+    }
+
+    .footer-nav-links {
+        display: flex !important; /* Change to flex for mobile */
+        flex-direction: column !important; /* Stack vertically */
+        justify-content: flex-start !important; /* Left-align links */
+        gap: 0.5rem !important; /* Small gap between links */
+        text-align: left !important; /* Ensure text is left aligned */
+        width: 100% !important;
+        margin-bottom: 2rem;
+        align-items: flex-start !important; /* Left-align individual links */
+        flex-wrap: nowrap !important; /* Prevent wrapping */
+    }
+
+    .footer-nav-links a {
+        padding-top: 0.25rem; /* Add slight vertical padding for spacing */
+        padding-bottom: 0.25rem; /* Add slight vertical padding for spacing */
+        line-height: 1.2; /* Adjust line height for closer text */
+    }
+
+    /* Remove border below the "Blog" link for mobile as it's now a single-column layout */
+    .footer-nav-links a:nth-child(3) { /* Targets the third link (Blog) */
+        border-bottom: none !important;
+        padding-bottom: 0 !important;
+        margin-bottom: 0 !important;
+    }
+
+    .footer-social-icons {
+        justify-content: flex-start !important; /* Left-align social media icons */
+        width: 100% !important; /* Ensure it takes full width */
+        margin-top: 1rem; /* Add some space above social icons */
+    }
+}
+
